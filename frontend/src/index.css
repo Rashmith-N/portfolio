@@ -66,6 +66,14 @@ h3 {
   html {
     scroll-behavior: auto;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .container {
@@ -77,6 +85,10 @@ h3 {
 
 .section {
   padding-block: var(--section-space);
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 .section-alt {
@@ -140,6 +152,143 @@ h3 {
 
 .btn-secondary:hover {
   border-color: var(--color-text);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-block: 0.875rem;
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.navbar-link {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.navbar-link:hover {
+  color: var(--color-text);
+}
+
+@media (min-width: 640px) {
+  .navbar-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 75vh;
+  min-height: calc(92svh - 7rem);
+  padding-block: clamp(3rem, 8vw, 5.5rem);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  max-width: 46ch;
+  margin-bottom: 2.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.hero-github {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 0.75rem 0.25rem;
+  transition: color 160ms ease;
+}
+
+.hero-github:hover {
+  color: var(--color-accent-dark);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-eyebrow {
+  animation: rise-in 600ms ease both;
+}
+
+.hero-title {
+  animation: rise-in 600ms ease both;
+  animation-delay: 80ms;
+}
+
+.hero-text {
+  animation: rise-in 600ms ease both;
+  animation-delay: 160ms;
+}
+
+.hero-actions {
+  animation: rise-in 600ms ease both;
+  animation-delay: 240ms;
 }
 
 .footer {
